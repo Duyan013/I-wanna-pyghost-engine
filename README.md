@@ -1,5 +1,5 @@
 # Pyghost
-I wanna create the Ghost.(Engine)<br>
+I wanna create the Ghost (Engine)<br>
 我想要创造一个鬼(自制I wanna 引擎)
 --
 这里有一个Demo<br>
