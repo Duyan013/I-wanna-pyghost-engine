@@ -49,10 +49,9 @@ def init():  # 初始化最好传给wanna.start
 # 帧数15 建议debug=True时计时用的是thread time，虽然cpu占用会高，但不会波动
 @wanna.start(init, (25*32, 19*32), 'Ghost Engine Demo', cps=15, debug=True)
 def update(live: tuple[int, int], orders: list[wanna.Obj], pressed: tuple[int, ...], newindex: int) -> None:
-    # print(live)  # 一秒内多少帧和上一帧经过的毫秒数
-    # for i in orders:
-    #     if isinstance(i, wanna.Player):
-    #         print(i.pos)  # 打印kid坐标
-    # if pygame.K_RETURN in pressed and pressed.index(pygame.K_RETURN) >= newindex:
-    #     print(pressed, newindex)  # >=newindex为这一帧刚按下
-    print(orders[-1]._Player__hv, orders[-1]._Player__b)
+    print(live)  # 一秒内多少帧和上一帧经过的毫秒数
+    for i in orders:
+        if isinstance(i, wanna.Player):
+            print(i.pos)  # 打印kid坐标
+    if pygame.K_RETURN in pressed and pressed.index(pygame.K_RETURN) >= newindex:
+        print(pressed, newindex)  # >=newindex为这一帧刚按下
