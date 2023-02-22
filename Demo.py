@@ -1,20 +1,21 @@
 import pyghost as wanna
-import pygame
+from pygame.image import load
+from pygame.transform import flip
 import os
 
 
 def loadimgs():  # 这个是测试时加载的图片，都是除了room，其他都是32*32
-    wanna.imgs['mask'] = pygame.image.load('ghost/kid/Mask.png')
-    wanna.imgs['save'] = pygame.image.load('ghost/other/Save.png')
-    wanna.imgs['room'] = pygame.image.load('ghost/rooms/Room.png')
+    wanna.imgs['mask'] = load('ghost/kid/Mask.png')
+    wanna.imgs['save'] = load('ghost/other/Save.png')
+    wanna.imgs['room'] = load('ghost/rooms/Room.png')
     animate: dict[str, str] = {}
     for i in ['idle', 'run', 'jump', 'fall']:
         for j in enumerate(wanna.addrs['kid'][i]):
             animate[f'{i}r{j[0]}'] = f'{i}r{(j[0]+1)%len(wanna.addrs["kid"][i])}'
-            wanna.imgs[f'{i}r{j[0]}'] = pygame.image.load(os.path.join(
+            wanna.imgs[f'{i}r{j[0]}'] = load(os.path.join(
                 'ghost', 'kid', j[1]))
             animate[f'{i}l{j[0]}'] = f'{i}l{(j[0]+1)%len(wanna.addrs["kid"][i])}'
-            wanna.imgs[f'{i}l{j[0]}'] = pygame.transform.flip(
+            wanna.imgs[f'{i}l{j[0]}'] = flip(
                 wanna.imgs[f'{i}r{j[0]}'], True, False)
     return animate
 
