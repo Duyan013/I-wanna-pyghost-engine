@@ -22,8 +22,8 @@
 There is a Demo for you.<br>
 Try to play it or you can make your own level.<br>
 
-|Operation|              Keystroke                 |
-|:-------:|:--------------------------------------:|
+| Operation|              Keystroke                |
+|:--------:|:-------------------------------------:|
 |   Jump   |      Space or Left/Right Shift        |
 |   Move   | A/D or Left/Right Arrow or Keypad 4/6 |
 |   Ghost  |                 Z                     |
