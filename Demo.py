@@ -21,7 +21,7 @@ def loadimgs():  # 这个是测试时加载的图片，都是除了room，其他
 
 def init():  # 初始化最好传给wanna.start
     print('i wanna create the ghost')
-    wanna.layers.extend(['test', 'player'])
+    wanna.layers.extend(['test', 'player', 'ghost'])
     kid = wanna.Player('idler3', loadimgs(), layer='player',
                        touch={'test'}, clid='mask')
     test = wanna.Obj('room', (0, 0), layer='test')
@@ -41,12 +41,13 @@ def init():  # 初始化最好传给wanna.start
 
     save1 = wanna.Trigger('save', (24*32, 9*32), touch={
                           'player'}, affairs=[spawn])
-    wanna.rooms.append(wanna.Room((0, 17*32), kid, [test, save1]))  # 默认重生位置
+    wanna.rooms.append(wanna.Room((0+400, 17*32-100),
+                       kid, [test, save1]))  # 默认重生位置
     wanna.room = 0  # 初始房间
 
 
 # 帧数15 建议debug=True时计时用的是thread time，虽然cpu占用会高，但不会波动
-@wanna.start(init, (25*32, 19*32), 'Ghost Engine Demo', cps=15, debug=True)
+@wanna.start(init, (25*32, 19*32), 'Ghost Engine Demo', cps=5, debug=True)
 def update(live: tuple[int, int], orders: list[wanna.Obj], pressed: tuple[int, ...], newindex: int) -> None:
     print(live)  # 一秒内多少帧和上一帧经过的毫秒数
     for i in orders:
