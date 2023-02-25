@@ -2,3 +2,4 @@ build
 dist
 demo.spec
 upx.exe
+*.spec
