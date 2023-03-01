@@ -37,5 +37,5 @@ Try to play it or you can make your own level.<br>
 </ul>
 
 ---
-## Development Plan
-The properties of the role and Key settings.
+## Development Plan 开发计划
+Sound, perspective, background combine 音效，跟随视角，背景拼接
